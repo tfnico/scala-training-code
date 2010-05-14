@@ -12,32 +12,39 @@ h2. Factorial
 </pre>
 
 
+<pre>
  f(5,4,3,2,1) = 5 * f(4,3,2,1)
  f(4,3,2,1) = 4 * f(3,2,1)
  f(3,2,1) = 3 * f(2,1)
  f(2, 1) = 2 * f(1)
  f(1) = 1
+</pre>
 
 
 h2. Iterative
 
 Algorithm:
+<pre>
  loop (5,4,3,2,1):
   each: result = result * n
   decrease n with 1
   repeat until 1
+</pre>
 
 Output:
+<pre>
  fact(5) = 
  1   
  5
  20
  60
  120
+</pre>
 
 
 h2. Recursive
 
+<pre>
  fact(5) = 5 * fact(4)
         = 5 * (4 * fact(3))
         = 5 * (4 * (3 * fact(2)))
@@ -50,30 +57,36 @@ h2. Recursive
         = 5 * (4 * 6)
         = 5 * 24
         = 120
+</pre>
 
 h2. Tail recursive
 
+<pre>
  fact(5)  = f(4, 1*5)
  f(4,5)   = f(3, 5*4)
  f(3,20)  = f(2, 20*3)
  f(2,60)  = f(1, 60*2)
  f(1,120) = 1 * 120
+</pre>
 
 h2. Pattern matching
 
- [Same evaluation as recursive]
+[Same evaluation as recursive]
 
 h2. Pattern matching with tail recursion
 
- [Same as above]
+[Same as above]
 
 h2. Fold Left
 
+<pre>
  def foldLeft[B] (z : B) (op : (B, A) => B) : B
  Combines the elements of this iterable object together using the binary function f, from left to right, and starting with the value z.
+</pre>
 
- Our operation is  A * B
+Our operation is  A * B
 
+<pre>
  (1)    [1, 2, 3, 4, 5] 
  (1*1)  [2, 3, 4, 5]
  (1*2)  [3, 4, 5]
@@ -81,18 +94,24 @@ h2. Fold Left
  (6*4)  [5]
  (24*5) []
  120
+</pre>
 
 h2. Fold Right
 
+<pre>
  [1, 2, 3, 4, 5] (1) 
  [1, 2, 3, 4]    (1*5) 
  [1, 2, 3]       (5*4) 
  [1, 2]         (20*3) 
  [1]            (60*2) 
  []            (120*1) 
+</pre>
 
+Also note:
+<pre>
  :\ [B](z : B)(op : (A, B) => B) : B
  An alias for foldRight. That is, xs :\ z is the same as xs foldRight z
+</pre>
 
 h2. Reduce right
 

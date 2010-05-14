@@ -53,7 +53,7 @@ def fact(n:Int) = (1 to n).foldRight (1) ((a,b) => a* b )
 /* Or parameterless anonymous function */
 def fact(n:Int) = (1 to n).foldRight (1) (_ * _)
 
-/* Or just  */
+/* Or just..  */
 def fact(n:Int) = ((1 to n) :\ 1) (_ * _)
 
 /* With reduce (won't support fact(0) */
