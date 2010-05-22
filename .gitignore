@@ -16,3 +16,4 @@ TAGS
 *.iml          
 .idea
 *iml
+.scala_dependencies
