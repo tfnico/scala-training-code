@@ -20,7 +20,14 @@ object MockQuiz extends QuizProvider {
                                      Answer("Whale",false), 
                                      Answer("Lobster",false)
                                      )
-                                )
+                                ),
+                        Question("Who painted Skrik??",
+                        List(Answer("Munch",true), 
+                             Answer("Leonardo",false), 
+                             Answer("Picasso",false), 
+                             Answer("Martini",false)
+                             )
+                        )
                        )
              )
   
