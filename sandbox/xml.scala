@@ -28,6 +28,10 @@ println(xml)
 
 scala.xml.XML.saveFull("filename.xml", xml, "UTF-8", true, null)
 
+//Pretty printing
+val printer = new scala.xml.PrettyPrinter(60,4)
+printer.format(xml)
+
 //Parsing
 
 def typeOfList(xml:scala.xml.Elem) = {
@@ -38,3 +42,28 @@ def typeOfList(xml:scala.xml.Elem) = {
     }
 }
 
+// "Any sequence = _*
+
+def typeOfList(xml:scala.xml.Elem) = {
+    xml match {
+        case <ul>{contents @ _*}</ul> => "Unordered list. Elements are: " + contents; for(elm <- contents) println("Found item "+elm)
+        case <ol>{contents @ _*}</ol> => "Ordered list. Elements are: " + contents
+        case _ => "Something else"
+    }
+}
+
+val dirtyNamesXml = 
+<ul>
+    <li>Alf</li>
+    <que>wut</que>
+    <li>Fredrik</li>
+</ul>
+
+def typeOfDirtyList(xml:scala.xml.Elem) = {
+    xml match {
+        case <ul>{contents @ _*}</ul> => "Unordered list. Elements are: " + contents; for(elm @ <li>{_*}</li> <- contents) println("Found item "+elm)
+    
+        case <ol>{contents @ _*}</ol> => "Ordered list. Elements are: " + contents
+        case _ => "Something else"
+    }
+}
