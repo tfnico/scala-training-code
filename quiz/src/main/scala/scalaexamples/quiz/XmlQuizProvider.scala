@@ -15,6 +15,21 @@ class XmlQuizProvider(file: String) extends QuizProvider {
   /**
    * TODO: Implement parsing of the XML into a Quiz object with questions and answers
    */
-  private def parseXml(xml: Elem): Quiz = error("Not implemented")
+  private def parseXml(xml: Elem): Quiz = {
+	  val title = (xml \ "title").text
+	  
+	  val questions = (xml \\ "item").map{ elm => 
+	   
+	   		val answers = (elm \\ "option").map { optionElm =>
+	   		
+	   			val correct = (optionElm \ "@correct").text == "y" 
+	   			val answerText = optionElm.text
+	   			Answer(answerText, correct)
+	   		}
+	   		val questionText = (elm \ "question").text
+	   		Question(questionText,answers.toList)
+	  }
+	  new Quiz(title, questions.toList)
+  }
   
 }

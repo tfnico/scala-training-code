@@ -17,6 +17,12 @@
 	  <groupId>org.scala-lang</groupId>
 	  <artifactId>scala-swing</artifactId>
 	</dependency>
+	    <dependency>
+      <groupId>org.scalatest</groupId>
+        <artifactId>scalatest</artifactId>
+        <version>1.2-for-scala-2.8.0.RC2-SNAPSHOT</version>
+     </dependency>
+	
   </dependencies>
   
    <build>
@@ -38,4 +44,16 @@
       </plugin>
     </plugins>
   </build>
+  
+  <repositories>
+    <repository>
+        <id>scala-tools.org-ss</id>
+        <name>Scala-Tools Maven2 Repository ss</name>
+        <url>http://scala-tools.org/repo-snapshots</url>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
+</repositories>
+  
 </project>
