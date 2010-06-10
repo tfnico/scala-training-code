@@ -15,8 +15,8 @@ object MockQuiz extends QuizProvider {
                                      )
                                 ),
                        Question("Which one cannot swim?",
-                                List(Answer("Tuna",true), 
-                                     Answer("Cow",false), 
+                                List(Answer("Tuna",false), 
+                                     Answer("Cow",true), 
                                      Answer("Whale",false), 
                                      Answer("Lobster",false)
                                      )

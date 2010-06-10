@@ -13,7 +13,7 @@ class XmlQuizProvider(file: String) extends QuizProvider {
   } 
 
   /**
-   * TODO: Implement parsing of the XML into a Quiz object with questions and answers
+   * 
    */
   private def parseXml(xml: Elem): Quiz = {
 	  val title = (xml \ "title").text
